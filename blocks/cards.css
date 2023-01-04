@@ -49,3 +49,12 @@
   opacity: 0.5;
   cursor: pointer;
 }
+
+@media screen and (max-width: 620px) {
+  .cards {
+    grid-template-columns: 1fr;
+    grid-template-rows: 6;
+    max-width: calc(100% - 38px);
+    margin: auto;
+  }
+}

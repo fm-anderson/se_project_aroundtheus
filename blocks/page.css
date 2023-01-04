@@ -8,9 +8,9 @@
 }
 
 .page__content {
-  margin: 0 auto;
-  color: #ffffff;
+  color: #fff;
   max-width: 880px;
+  margin: 0 auto;
 }
 
 @media screen and (max-width: 900px) {

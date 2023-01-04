@@ -50,7 +50,7 @@
 .profile__edit {
   width: 24px;
   height: 24px;
-  border-color: #fff;
+  border: 1px solid #fff;
   background-color: transparent;
   background-image: url(../images/edit-button.svg);
   background-repeat: no-repeat;
@@ -90,24 +90,16 @@
 
   .profile__title {
     text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     max-width: 230px;
   }
 
   .profile__subtitle {
     text-align: left;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     max-width: 230px;
   }
 
   .profile__edit {
     margin-right: 20px;
-    width: 24px;
-    height: 24px;
   }
 }
 
@@ -134,12 +126,8 @@
   .profile__title {
     font-size: 22px;
     line-height: 27px;
-    text-align: center;
     padding: 0;
     max-width: 196px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
   }
 
   .profile__subtitle {
@@ -148,9 +136,6 @@
     margin-bottom: 36px;
     max-width: 196px;
     padding: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
   }
 
   .profile__add {

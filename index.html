@@ -20,6 +20,7 @@
           class="header__logo"
         />
       </header>
+
       <main>
         <section class="profile">
           <img
@@ -36,7 +37,6 @@
           </div>
           <button class="profile__add" type="button"></button>
         </section>
-
         <section class="cards">
           <article class="cards__content">
             <img
@@ -106,10 +106,42 @@
           </article>
         </section>
       </main>
+
       <footer class="footer">
         <p class="footer__copywrite">&copy; 2022 Around The U.S.</p>
       </footer>
+
+      <div class="modal modal_opened">
+        <div class="modal__container">
+          <form class="modal__form" name="modal__form">
+            <h3 class="modal__form__title">Edit profile</h3>
+            <button type="button" class="modal__form__exit-button">
+              <img
+                class="modal__form__exit-icon"
+                src="./images/close-modal-icon.svg"
+                alt="exit button"
+              />
+            </button>
+            <input
+              type="text"
+              class="modal__form__input"
+              name="name"
+              placeholder="Name"
+              required
+            />
+            <input
+              type="text"
+              class="modal__form__input"
+              name="description"
+              placeholder="Description"
+              required
+            />
+            <button type="submit" class="modal__form__button">Save</button>
+          </form>
+        </div>
+      </div>
     </div>
+
     <script src="./scripts/index.js"></script>
   </body>
 </html>

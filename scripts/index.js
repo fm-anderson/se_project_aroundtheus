@@ -37,6 +37,9 @@ const nameInput = document.querySelector('#nameInput');
 const jobInput = document.querySelector('#jobInput');
 const btnSaveUpdates = document.querySelector('#btnSaveUpdates');
 
+const cardTemplate = document.querySelector('#cardTemplate').content;
+const cardsList = document.querySelector('.cards__list');
+
 btnEditProfile.addEventListener('click', handleEditButton);
 btnCloseEditProfile.addEventListener('click', handleCloseButton);
 btnSaveUpdates.addEventListener('click', handleProfileFormSubmit);
@@ -56,4 +59,25 @@ function handleProfileFormSubmit(evt) {
   profileTitle.textContent = nameInput.value;
   profileSubtitle.textContent = jobInput.value;
   modal.classList.remove('modal_opened');
+}
+
+function getCardElement(data) {
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardElementImage = cardElement.querySelector('.cards__image');
+  const cardElementTitle = cardElement.querySelector('.cards__title');
+
+  cardElementImage.src = data.link;
+  cardElementImage.alt = data.name;
+  cardElementTitle.textContent = data.name;
+
+  return cardElement;
+}
+
+function renderCard(data) {
+  const cardsRender = getCardElement(data);
+  cardsList.prepend(cardsRender);
+}
+
+for (card of initialCards) {
+  renderCard(card);
 }

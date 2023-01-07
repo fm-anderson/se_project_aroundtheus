@@ -1,10 +1,17 @@
 .cards {
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.cards__list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(282px, 1fr));
-  column-gap: 17px;
-  row-gap: 20px;
-  justify-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px 17px;
+  max-width: 880px;
+  padding: 0;
+  margin-top: 47px;
+  margin-bottom: 0;
 }
 
 .cards__content {
@@ -12,6 +19,7 @@
   background-color: #fff;
   border-radius: 10px;
   overflow: hidden;
+  list-style: none;
 }
 
 .cards__image {
@@ -52,11 +60,23 @@
   cursor: pointer;
 }
 
+@media screen and (max-width: 880px) {
+  .cards__list {
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .cards {
     grid-template-columns: 1fr;
     grid-template-rows: 6;
     max-width: calc(100% - 38px);
     margin: auto;
+  }
+
+  .cards__list {
+    grid-template-columns: 1fr;
+    max-width: 282px;
   }
 }

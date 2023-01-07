@@ -25,14 +25,35 @@ const initialCards = [
   },
 ];
 
-const modal = document.querySelector('.modal');
-const btnEditProfile = document.querySelector('.profile__edit');
-const btnCloseEditProfile = document.querySelector('.modal__form__exit-button');
+const profileTitle = document.querySelector('#profileTitle');
+const profileSubtitle = document.querySelector('#profileSubtitle');
 
-btnEditProfile.addEventListener('click', function () {
+const modal = document.querySelector('#modal');
+const btnEditProfile = document.querySelector('#btnEditProfile');
+const btnCloseEditProfile = document.querySelector('#btnCloseEditProfile');
+
+const profileFormElement = document.querySelector('#modalForm');
+const nameInput = document.querySelector('#nameInput');
+const jobInput = document.querySelector('#jobInput');
+const btnSaveUpdates = document.querySelector('#btnSaveUpdates');
+
+btnEditProfile.addEventListener('click', handleEditButton);
+btnCloseEditProfile.addEventListener('click', handleCloseButton);
+btnSaveUpdates.addEventListener('click', handleProfileFormSubmit);
+
+function handleEditButton() {
+  nameInput.value = profileTitle.textContent;
+  jobInput.value = profileSubtitle.textContent;
   modal.classList.add('modal_opened');
-});
+}
 
-btnCloseEditProfile.addEventListener('click', function () {
+function handleCloseButton() {
   modal.classList.remove('modal_opened');
-});
+}
+
+function handleProfileFormSubmit(evt) {
+  evt.preventDefault();
+  profileTitle.textContent = nameInput.value;
+  profileSubtitle.textContent = jobInput.value;
+  modal.classList.remove('modal_opened');
+}

@@ -41,24 +41,30 @@ const cardTemplate = document.querySelector('#cardTemplate').content;
 const cardsList = document.querySelector('.cards__list');
 
 btnEditProfile.addEventListener('click', handleEditButton);
-btnCloseEditProfile.addEventListener('click', handleCloseButton);
-btnSaveUpdates.addEventListener('click', handleProfileFormSubmit);
+btnCloseEditProfile.addEventListener('click', function () {
+  closePopup(modal);
+});
+profileFormElement.addEventListener('submit', handleProfileFormSubmit);
+
+function openPopup(popup) {
+  popup.classList.add('modal_opened');
+}
+
+function closePopup(popup) {
+  popup.classList.remove('modal_opened');
+}
 
 function handleEditButton() {
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileSubtitle.textContent;
-  modal.classList.add('modal_opened');
-}
-
-function handleCloseButton() {
-  modal.classList.remove('modal_opened');
+  openPopup(modal);
 }
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileTitle.textContent = nameInput.value;
   profileSubtitle.textContent = jobInput.value;
-  modal.classList.remove('modal_opened');
+  closePopup(modal);
 }
 
 function getCardElement(data) {
@@ -78,6 +84,4 @@ function renderCard(data) {
   cardsList.prepend(cardsRender);
 }
 
-for (card of initialCards) {
-  renderCard(card);
-}
+initialCards.forEach(renderCard);

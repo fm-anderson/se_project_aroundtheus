@@ -5,7 +5,7 @@
   visibility: none;
   opacity: 0;
   pointer-events: none;
-  transition: visibility 0s 0.5s, opacity 0.5s linear;
+  transition: visibility 0.2s, opacity 0.2s linear;
   top: 0;
   left: 0;
   bottom: 0;
@@ -15,12 +15,9 @@
 }
 
 .modal_opened {
-  position: fixed;
   visibility: visible;
   opacity: 1;
   pointer-events: all;
-  transition: visibility 0s, opacity 0.5s linear;
-  display: flex;
 }
 
 .modal__container {
@@ -40,7 +37,7 @@
   margin: 0 auto;
 }
 
-.modal__form__title {
+.modal__title {
   color: #000;
   font-style: normal;
   font-weight: 900;
@@ -49,27 +46,23 @@
   margin: 34px 0 54px 0;
 }
 
-.modal__form__exit-button {
-  border: none;
+.modal__close-button {
+  background: transparent url(../images/close-modal-icon.svg) no-repeat;
   width: 40px;
   height: 40px;
+  border: none;
+  background-size: cover;
+  top: -45px;
+  right: -45px;
   position: absolute;
-  top: -40px;
-  right: -40px;
-  background: transparent;
-  padding: 0;
+}
+
+.modal__close-button:hover {
+  opacity: 0.6;
   cursor: pointer;
 }
 
-.modal__form__exit-icon {
-  width: 40px;
-}
-
-.modal__form__exit-icon:hover {
-  opacity: 0.6;
-}
-
-.modal__form__input {
+.modal__input {
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   color: #000;
@@ -80,15 +73,15 @@
   line-height: 17px;
 }
 
-.modal__form__input:nth-last-child(2) {
+.modal__input:nth-last-child(2) {
   margin-top: 30px;
 }
 
-.modal__form__input::placeholder {
+.modal__input::placeholder {
   color: #333;
 }
 
-.modal__form__button {
+.modal__button {
   width: 100%;
   height: 50px;
   background-color: #000;
@@ -103,7 +96,7 @@
   border-radius: 2px;
 }
 
-.modal__form__button:hover {
+.modal__button:hover {
   opacity: 0.8;
   cursor: pointer;
 }
@@ -122,19 +115,13 @@
     line-height: 22px;
   }
 
-  .modal__form__exit-button {
+  .modal__close-button {
     width: 26px;
-    margin: 0;
+    height: 26px;
     right: 0;
   }
 
-  .modal__form__exit-icon {
-    width: 26px;
-    font-size: 14px;
-    line-height: 17px;
-  }
-
-  .modal__form__button {
+  .modal__button {
     margin-bottom: 25px;
   }
 }

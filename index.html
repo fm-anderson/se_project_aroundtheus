@@ -64,21 +64,15 @@
       <div class="modal" id="modal">
         <div class="modal__container">
           <form class="modal__form" name="modal__form" id="modalForm">
-            <h3 class="modal__form__title">Edit profile</h3>
+            <h3 class="modal__title">Edit profile</h3>
             <button
               type="button"
-              class="modal__form__exit-button"
+              class="modal__close-button"
               id="btnCloseEditProfile"
-            >
-              <img
-                class="modal__form__exit-icon"
-                src="./images/close-modal-icon.svg"
-                alt="exit button"
-              />
-            </button>
+            ></button>
             <input
               type="text"
-              class="modal__form__input"
+              class="modal__input"
               id="nameInput"
               name="name"
               placeholder="Name"
@@ -86,19 +80,13 @@
             />
             <input
               type="text"
-              class="modal__form__input"
+              class="modal__input"
               id="jobInput"
               name="description"
               placeholder="Description"
               required
             />
-            <button
-              type="submit"
-              class="modal__form__button"
-              id="btnSaveUpdates"
-            >
-              Save
-            </button>
+            <button class="modal__button" id="btnSaveUpdates">Save</button>
           </form>
         </div>
       </div>

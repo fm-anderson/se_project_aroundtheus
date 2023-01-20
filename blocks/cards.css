@@ -60,6 +60,11 @@
   cursor: pointer;
 }
 
+.cards__like-active {
+  background-image: url(../images/like-button-active.svg);
+  background-repeat: no-repeat;
+}
+
 @media screen and (max-width: 880px) {
   .cards__list {
     grid-template-columns: 1fr 1fr;

@@ -74,6 +74,10 @@ function handleAddButton() {
   openPopup(addModal);
 }
 
+function handleLikeButton(e) {
+  e.target.classList.toggle('cards__like-active');
+}
+
 function handleProfileFormSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = nameInput.value;
@@ -98,6 +102,8 @@ function getCardElement(data) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardElementImage = cardElement.querySelector('.cards__image');
   const cardElementTitle = cardElement.querySelector('.cards__title');
+  const likeButton = cardElement.querySelector('.cards__like');
+  likeButton.addEventListener('click', handleLikeButton);
 
   cardElementImage.src = data.link;
   cardElementImage.alt = data.name;

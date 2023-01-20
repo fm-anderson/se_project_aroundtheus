@@ -30,21 +30,23 @@
           />
           <div class="profile__info">
             <div class="profile__info-title">
-              <h1 class="profile__title" id="profileTitle">Jacques Cousteau</h1>
+              <h1 class="profile__title" id="profile-title">
+                Jacques Cousteau
+              </h1>
               <button
                 class="profile__edit"
                 type="button"
-                id="btnEditProfile"
+                id="edit-profile"
               ></button>
             </div>
-            <p class="profile__subtitle" id="profileSubtitle">Explorer</p>
+            <p class="profile__subtitle" id="profile-subtitle">Explorer</p>
           </div>
-          <button class="profile__add" type="button"></button>
+          <button class="profile__add" type="button" id="btn-add-card"></button>
         </section>
 
         <section class="cards">
           <ul class="cards__list">
-            <template id="cardTemplate">
+            <template id="card-template">
               <li class="cards__content">
                 <img src="" alt="" class="cards__image" />
                 <div class="cards__info">
@@ -61,19 +63,14 @@
         <p class="footer__copywrite">&copy; 2022 Around The U.S.</p>
       </footer>
 
-      <div class="modal" id="modal">
+      <div class="modal" id="edit-modal">
         <div class="modal__container">
-          <form class="modal__form" name="modal__form" id="modalForm">
+          <form class="modal__form" name="modal__form" id="edit-modal-form">
             <h3 class="modal__title">Edit profile</h3>
-            <button
-              type="button"
-              class="modal__close-button"
-              id="btnCloseEditProfile"
-            ></button>
             <input
               type="text"
               class="modal__input"
-              id="nameInput"
+              id="name-input"
               name="name"
               placeholder="Name"
               required
@@ -81,13 +78,48 @@
             <input
               type="text"
               class="modal__input"
-              id="jobInput"
+              id="job-input"
               name="description"
               placeholder="Description"
               required
             />
-            <button class="modal__button" id="btnSaveUpdates">Save</button>
+            <button class="modal__button">Save</button>
           </form>
+          <button
+            type="button"
+            class="modal__close-button"
+            id="close-edit-modal"
+          ></button>
+        </div>
+      </div>
+
+      <div class="modal" id="add-modal">
+        <div class="modal__container">
+          <form class="modal__form" name="modal__form" id="add-modal-form">
+            <h3 class="modal__title">New Place</h3>
+            <input
+              type="text"
+              class="modal__input"
+              id="place-input"
+              name="name"
+              placeholder="Title"
+              required
+            />
+            <input
+              type="text"
+              class="modal__input"
+              id="link-input"
+              name="description"
+              placeholder="Image URL"
+              required
+            />
+            <button class="modal__button">Save</button>
+          </form>
+          <button
+            type="button"
+            class="modal__close-button"
+            id="close-add-modal"
+          ></button>
         </div>
       </div>
     </div>

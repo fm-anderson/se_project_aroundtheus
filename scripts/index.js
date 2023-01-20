@@ -26,8 +26,8 @@ const initialCards = [
 ];
 
 // constants
-const profileTitle = document.querySelector('#profile-title');
-const profileSubtitle = document.querySelector('#profile-subtitle');
+const profileTitle = document.querySelector('#prof-title');
+const profileSubtitle = document.querySelector('#prof-subtitle');
 
 const editModal = document.querySelector('#edit-modal');
 const addModal = document.querySelector('#add-modal');
@@ -53,7 +53,7 @@ btnAddCard.addEventListener('click', handleAddButton);
 btnCloseEdit.addEventListener('click', () => closePopup(editModal));
 btnCloseAdd.addEventListener('click', () => closePopup(addModal));
 profileFormElement.addEventListener('submit', handleProfileFormSubmit);
-addCardFormElement.addEventListener('submit', console.log('new card added!'));
+addCardFormElement.addEventListener('submit', handleAddCardFormSubmit);
 
 //functions
 function openPopup(popup) {
@@ -71,16 +71,27 @@ function handleEditButton() {
 }
 
 function handleAddButton() {
-  // nameInput.value = profileTitle.textContent;
-  // jobInput.value = profileSubtitle.textContent;
   openPopup(addModal);
 }
 
-function handleProfileFormSubmit(evt) {
-  evt.preventDefault();
+function handleProfileFormSubmit(e) {
+  e.preventDefault();
   profileTitle.textContent = nameInput.value;
   profileSubtitle.textContent = jobInput.value;
   closePopup(editModal);
+}
+
+function handleAddCardFormSubmit(e) {
+  e.preventDefault();
+  const newCard = { name: placeInput.value, link: linkInput.value };
+  renderCard(newCard);
+  resetInput(placeInput);
+  resetInput(linkInput);
+  closePopup(addModal);
+}
+
+function resetInput(input) {
+  input.value = '';
 }
 
 function getCardElement(data) {

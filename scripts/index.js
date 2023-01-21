@@ -31,10 +31,12 @@ const profileSubtitle = document.querySelector('#prof-subtitle');
 
 const editModal = document.querySelector('#edit-modal');
 const addModal = document.querySelector('#add-modal');
+const previewModal = document.querySelector('#preview-modal');
 const btnProfile = document.querySelector('#edit-profile');
 const btnAddCard = document.querySelector('#btn-add-card');
 const btnCloseEdit = document.querySelector('#close-edit-modal');
 const btnCloseAdd = document.querySelector('#close-add-modal');
+const btnClosePreview = document.querySelector('#close-preview-modal');
 
 const profileFormElement = document.querySelector('#edit-modal-form');
 const nameInput = document.querySelector('#name-input');
@@ -44,6 +46,9 @@ const addCardFormElement = document.querySelector('#add-modal-form');
 const placeInput = document.querySelector('#place-input');
 const linkInput = document.querySelector('#link-input');
 
+const previewImage = document.querySelector('.modal__preview-image');
+const previewText = document.querySelector('.modal__preview-text');
+
 const cardTemplate = document.querySelector('#card-template').content;
 const cardsList = document.querySelector('.cards__list');
 
@@ -52,6 +57,7 @@ btnProfile.addEventListener('click', handleEditButton);
 btnAddCard.addEventListener('click', handleAddButton);
 btnCloseEdit.addEventListener('click', () => closePopup(editModal));
 btnCloseAdd.addEventListener('click', () => closePopup(addModal));
+btnClosePreview.addEventListener('click', () => closePopup(previewModal));
 profileFormElement.addEventListener('submit', handleProfileFormSubmit);
 addCardFormElement.addEventListener('submit', handleAddCardFormSubmit);
 
@@ -82,6 +88,12 @@ function handleDeleteButton(e) {
   e.target.closest('.cards__content').remove();
 }
 
+function handlePreview(e) {
+  previewImage.src = e.target.src;
+  previewText.textContent = e.target.alt;
+  openPopup(previewModal);
+}
+
 function handleProfileFormSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = nameInput.value;
@@ -110,6 +122,7 @@ function getCardElement(data) {
   const deleteButton = cardElement.querySelector('.cards__delete');
   likeButton.addEventListener('click', handleLikeButton);
   deleteButton.addEventListener('click', handleDeleteButton);
+  cardElementImage.addEventListener('click', handlePreview);
 
   cardElementImage.src = data.link;
   cardElementImage.alt = data.name;

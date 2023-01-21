@@ -101,6 +101,26 @@
   cursor: pointer;
 }
 
+.modal__preview {
+  background-color: transparent;
+  position: relative;
+  width: auto;
+  box-shadow: none;
+}
+
+.modal__preview-image {
+  background-color: transparent;
+  max-height: 75vh;
+  max-width: 75vw;
+}
+
+.modal__preview-text {
+  font-size: 12px;
+  font-weight: 400;
+  color: #fff;
+  width: 100%;
+}
+
 @media screen and (max-width: 680px) {
   .modal__container {
     width: 282px;
@@ -123,5 +143,9 @@
 
   .modal__button {
     margin-bottom: 25px;
+  }
+
+  .modal__preview {
+    margin: 0 40px 0 40px;
   }
 }

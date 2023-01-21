@@ -46,7 +46,7 @@
           <ul class="cards__list">
             <template id="card-template">
               <li class="cards__content">
-                <img src="" alt="" class="cards__image" />
+                <img src="#" alt="#" class="cards__image" />
                 <button type="button" class="cards__delete"></button>
                 <div class="cards__info">
                   <h2 class="cards__title"></h2>
@@ -120,6 +120,18 @@
             id="close-add-modal"
           ></button>
         </div>
+      </div>
+    </div>
+
+    <div class="modal" id="preview-modal">
+      <div class="modal__container modal__preview">
+        <button
+          class="modal__close-button"
+          type="button"
+          id="close-preview-modal"
+        ></button>
+        <img class="modal__preview-image" src="#" alt="#" />
+        <h3 class="modal__preview-text"></h3>
       </div>
     </div>
 

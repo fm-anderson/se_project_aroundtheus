@@ -78,6 +78,10 @@ function handleLikeButton(e) {
   e.target.classList.toggle('cards__like-active');
 }
 
+function handleDeleteButton(e) {
+  e.target.closest('.cards__content').remove();
+}
+
 function handleProfileFormSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = nameInput.value;
@@ -103,7 +107,9 @@ function getCardElement(data) {
   const cardElementImage = cardElement.querySelector('.cards__image');
   const cardElementTitle = cardElement.querySelector('.cards__title');
   const likeButton = cardElement.querySelector('.cards__like');
+  const deleteButton = cardElement.querySelector('.cards__delete');
   likeButton.addEventListener('click', handleLikeButton);
+  deleteButton.addEventListener('click', handleDeleteButton);
 
   cardElementImage.src = data.link;
   cardElementImage.alt = data.name;

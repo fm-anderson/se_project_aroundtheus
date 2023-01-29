@@ -72,16 +72,22 @@
               id="name-input"
               name="name"
               placeholder="Name"
+              minlength="2"
+              maxlength="40"
               required
             />
+            <span id="profile-name-error"></span>
             <input
               type="text"
               class="modal__input"
               id="job-input"
               name="description"
               placeholder="Description"
+              minlength="2"
+              maxlength="200"
               required
             />
+            <span id="profile-description-error"></span>
             <button class="modal__button">Save</button>
           </form>
           <button

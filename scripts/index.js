@@ -64,8 +64,8 @@ addCardFormElement.addEventListener('submit', handleAddCardFormSubmit);
 //functions
 function openPopup(popup) {
   popup.classList.add('modal_opened');
-  document.addEventListener('keydown', closeByEscape);
   popup.addEventListener('mousedown', closeByMouse);
+  document.addEventListener('keydown', closeByEscape);
 }
 
 function closePopup(popup) {
@@ -122,13 +122,8 @@ function handleAddCardFormSubmit(e) {
   e.preventDefault();
   const newCard = { name: placeInput.value, link: linkInput.value };
   renderCard(newCard);
-  resetInput(placeInput);
-  resetInput(linkInput);
+  addCardFormElement.reset();
   closePopup(addModal);
-}
-
-function resetInput(input) {
-  input.value = '';
 }
 
 function getCardElement(data) {

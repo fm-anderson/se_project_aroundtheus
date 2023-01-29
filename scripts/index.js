@@ -64,10 +64,27 @@ addCardFormElement.addEventListener('submit', handleAddCardFormSubmit);
 //functions
 function openPopup(popup) {
   popup.classList.add('modal_opened');
+  document.addEventListener('keydown', closeByEscape);
+  popup.addEventListener('mousedown', closeByMouse);
 }
 
 function closePopup(popup) {
   popup.classList.remove('modal_opened');
+  document.removeEventListener('keydown', closeByEscape);
+}
+
+function closeByEscape(e) {
+  if (e.key === 'Escape') {
+    const popup = document.querySelector('.modal_opened');
+    closePopup(popup);
+  }
+}
+
+function closeByMouse(e) {
+  if (e.target.classList.contains('modal_opened')) {
+    const popup = document.querySelector('.modal_opened');
+    closePopup(popup);
+  }
 }
 
 function handleEditButton() {

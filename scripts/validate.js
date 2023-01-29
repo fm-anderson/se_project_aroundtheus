@@ -45,6 +45,7 @@ function setEventListeners(formEl, elRef) {
   const { inputSelector, submitButtonSelector, inactiveButtonClass } = elRef;
   const inputEls = [...formEl.querySelectorAll(inputSelector)];
   const submitBtn = formEl.querySelector(submitButtonSelector);
+  toggleButtonState(inputEls, submitBtn, elRef);
   formEl.addEventListener('reset', () => {
     disableButton(submitBtn, inactiveButtonClass);
   });

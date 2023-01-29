@@ -34,9 +34,7 @@ const addModal = document.querySelector('#add-modal');
 const previewModal = document.querySelector('#preview-modal');
 const btnProfile = document.querySelector('#edit-profile');
 const btnAddCard = document.querySelector('#btn-add-card');
-const btnCloseEdit = document.querySelector('#close-edit-modal');
-const btnCloseAdd = document.querySelector('#close-add-modal');
-const btnClosePreview = document.querySelector('#close-preview-modal');
+const closeButtons = document.querySelectorAll('.modal__close-button');
 
 const profileFormElement = document.querySelector('#edit-modal-form');
 const nameInput = document.querySelector('#name-input');
@@ -55,11 +53,12 @@ const cardsList = document.querySelector('.cards__list');
 // event listeners
 btnProfile.addEventListener('click', handleEditButton);
 btnAddCard.addEventListener('click', handleAddButton);
-btnCloseEdit.addEventListener('click', () => closePopup(editModal));
-btnCloseAdd.addEventListener('click', () => closePopup(addModal));
-btnClosePreview.addEventListener('click', () => closePopup(previewModal));
 profileFormElement.addEventListener('submit', handleProfileFormSubmit);
 addCardFormElement.addEventListener('submit', handleAddCardFormSubmit);
+closeButtons.forEach((button) => {
+  const popup = button.closest('.modal');
+  button.addEventListener('click', () => closePopup(popup));
+});
 
 //functions
 function openPopup(popup) {
@@ -70,6 +69,7 @@ function openPopup(popup) {
 
 function closePopup(popup) {
   popup.classList.remove('modal_opened');
+  popup.removeEventListener('mousedown', closeByMouse);
   document.removeEventListener('keydown', closeByEscape);
 }
 
@@ -82,8 +82,7 @@ function closeByEscape(e) {
 
 function closeByMouse(e) {
   if (e.target.classList.contains('modal_opened')) {
-    const popup = document.querySelector('.modal_opened');
-    closePopup(popup);
+    closePopup(e.target);
   }
 }
 
@@ -107,6 +106,7 @@ function handleDeleteButton(e) {
 
 function handlePreview(e) {
   previewImage.src = e.target.src;
+  previewImage.alt = e.target.alt;
   previewText.textContent = e.target.alt;
   openPopup(previewModal);
 }

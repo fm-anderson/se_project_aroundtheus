@@ -96,20 +96,20 @@ function handleAddButton() {
   openPopup(addModal);
 }
 
-function handleLikeButton(e) {
-  e.target.classList.toggle('cards__like-active');
-}
+// function handleLikeButton(e) {
+//   e.target.classList.toggle('cards__like-active');
+// }
 
-function handleDeleteButton(e) {
-  e.target.closest('.cards__content').remove();
-}
+// function handleDeleteButton(e) {
+//   e.target.closest('.cards__content').remove();
+// }
 
-function handlePreview(e) {
-  previewImage.src = e.target.src;
-  previewImage.alt = e.target.alt;
-  previewText.textContent = e.target.alt;
-  openPopup(previewModal);
-}
+// function handlePreview(e) {
+//   previewImage.src = e.target.src;
+//   previewImage.alt = e.target.alt;
+//   previewText.textContent = e.target.alt;
+//   openPopup(previewModal);
+// }
 
 function handleProfileFormSubmit(e) {
   e.preventDefault();
@@ -126,26 +126,93 @@ function handleAddCardFormSubmit(e) {
   closePopup(addModal);
 }
 
-function getCardElement(data) {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardElementImage = cardElement.querySelector('.cards__image');
-  const cardElementTitle = cardElement.querySelector('.cards__title');
-  const likeButton = cardElement.querySelector('.cards__like');
-  const deleteButton = cardElement.querySelector('.cards__delete');
-  likeButton.addEventListener('click', handleLikeButton);
-  deleteButton.addEventListener('click', handleDeleteButton);
-  cardElementImage.addEventListener('click', handlePreview);
+// function getCardElement(data) {
+//   const cardElement = cardTemplate.cloneNode(true);
+//   const cardElementImage = cardElement.querySelector('.cards__image');
+//   const cardElementTitle = cardElement.querySelector('.cards__title');
+//   const likeButton = cardElement.querySelector('.cards__like');
+//   const deleteButton = cardElement.querySelector('.cards__delete');
+//   likeButton.addEventListener('click', handleLikeButton);
+//   deleteButton.addEventListener('click', handleDeleteButton);
+//   cardElementImage.addEventListener('click', handlePreview);
 
-  cardElementImage.src = data.link;
-  cardElementImage.alt = data.name;
-  cardElementTitle.textContent = data.name;
+//   cardElementImage.src = data.link;
+//   cardElementImage.alt = data.name;
+//   cardElementTitle.textContent = data.name;
 
-  return cardElement;
+//   return cardElement;
+// }
+
+// function renderCard(data) {
+//   const cardsRender = getCardElement(data);
+//   cardsList.prepend(cardsRender);
+// }
+
+// initialCards.forEach(renderCard);
+
+class Card {
+  constructor(cardData, cardSelector) {
+    this._name = cardData.name;
+    this._link = cardData.link;
+    this._cardSelector = cardSelector;
+  }
+
+  _getTemplate() {
+    const cardElement = document
+      .querySelector(this._cardSelector)
+      .content.querySelector('.cards__content')
+      .cloneNode(true);
+
+    return cardElement;
+  }
+
+  getCardView() {
+    this._element = this._getTemplate();
+    this._setEventListenersCard();
+    const cardElementImage = this._element.querySelector('.cards__image');
+    cardElementImage.src = this._link;
+    cardElementImage.alt = this._name;
+    this._element.querySelector('.cards__title').textContent = this._name;
+
+    return this._element;
+  }
+
+  _setEventListenersCard() {
+    this._element
+      .querySelector('.cards__delete')
+      .addEventListener('click', () => this._handleDeleteButton(this));
+
+    this._element
+      .querySelector('.cards__like')
+      .addEventListener('click', () => this._handleLikeButton(this));
+
+    this._element
+      .querySelector('.cards__image')
+      .addEventListener('click', () => this._handlePreview(this));
+  }
+
+  _handleLikeButton() {
+    this._element
+      .querySelector('.cards__like')
+      .classList.toggle('cards__like-active');
+  }
+
+  _handleDeleteButton = () => {
+    this._element.remove();
+  };
+
+  _handlePreview() {
+    openPopup(previewModal);
+    const previewImage = document.querySelector('.modal__preview-image');
+    previewImage.src = this._link;
+    previewImage.alt = this._name;
+    document.querySelector('.modal__preview-text').textContent = this._name;
+  }
 }
 
-function renderCard(data) {
-  const cardsRender = getCardElement(data);
-  cardsList.prepend(cardsRender);
+function renderCard(cardData) {
+  const card = new Card(cardData, '#card-template');
+  cardsList.prepend(card.getCardView());
 }
 
 initialCards.forEach(renderCard);

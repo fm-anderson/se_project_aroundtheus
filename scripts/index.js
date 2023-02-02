@@ -62,6 +62,7 @@ function handleAddCardFormSubmit(e) {
   renderCard(newCard);
   addCardFormElement.reset();
   closePopup(addModal);
+  cardFormValidator.disableButton();
 }
 
 function handleEditButton() {

@@ -3,6 +3,7 @@ import Card from '../components/Card.js';
 import Section from '../components/Section.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
+import UserInfo from '../components/UserInfo.js';
 // import { openPopup, closePopup } from '../components/utils.js';
 import { initialCards } from '../utils/constants.js';
 
@@ -94,7 +95,7 @@ function renderCard(cardData) {
 const popupImagePreview = new PopupWithImage('#preview-modal');
 popupImagePreview.setEventListeners();
 
-// popup with form
+// popup with form: add card
 const createCardForm = new PopupWithForm('#add-modal', (data) => {
   const createdCard = new Card(data, '#card-template', (data) => {
     popupImagePreview.open(data);
@@ -106,3 +107,18 @@ const createCardForm = new PopupWithForm('#add-modal', (data) => {
 createCardForm.setEventListeners();
 
 btnAddCard.addEventListener('click', () => createCardForm.open());
+
+// user info
+const userInfo = new UserInfo({
+  userNameSelector: '#prof-title',
+  userJobSelector: '#prof-subtitle',
+});
+
+// popup with form: update profile
+const profileForm = new PopupWithForm('#edit-modal', (data) => {
+  userInfo.setUserInfo(data);
+  profileForm.close();
+});
+profileForm.setEventListeners();
+
+btnProfile.addEventListener('click', () => profileForm.open());

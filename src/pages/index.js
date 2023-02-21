@@ -1,34 +1,9 @@
-import FormValidator from './FormValidator.js';
-import Card from './Card.js';
-import { openPopup, closePopup } from './utils.js';
-
-// cards
-const initialCards = [
-  {
-    name: 'Yosemite Valley',
-    link: 'https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg',
-  },
-  {
-    name: 'Lake Louise',
-    link: 'https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg',
-  },
-  {
-    name: 'Bald Mountains',
-    link: 'https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg',
-  },
-  {
-    name: 'Latemar',
-    link: 'https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg',
-  },
-  {
-    name: 'Vanoise National Park',
-    link: 'https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg',
-  },
-  {
-    name: 'Lago di Braies',
-    link: 'https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg',
-  },
-];
+import FormValidator from '../components/FormValidator.js';
+import Card from '../components/Card.js';
+import Section from '../components/Section.js';
+import PopupWithImage from '../components/PopupWithImage.js';
+// import { openPopup, closePopup } from '../components/utils.js';
+import { initialCards } from '../utils/constants.js';
 
 // constants
 const editModal = document.querySelector('#edit-modal');
@@ -75,22 +50,14 @@ function handleAddButton() {
   openPopup(addModal);
 }
 
-btnProfile.addEventListener('click', handleEditButton);
-btnAddCard.addEventListener('click', handleAddButton);
-profileFormElement.addEventListener('submit', handleProfileFormSubmit);
-addCardFormElement.addEventListener('submit', handleAddCardFormSubmit);
-closeButtons.forEach((button) => {
-  const popup = button.closest('.modal');
-  button.addEventListener('click', () => closePopup(popup));
-});
-
-// render cards
-function renderCard(cardData) {
-  const card = new Card(cardData, '#card-template');
-  cardsList.prepend(card.getCardView());
-}
-
-initialCards.forEach(renderCard);
+// btnProfile.addEventListener('click', handleEditButton);
+// btnAddCard.addEventListener('click', handleAddButton);
+// profileFormElement.addEventListener('submit', handleProfileFormSubmit);
+// addCardFormElement.addEventListener('submit', handleAddCardFormSubmit);
+// closeButtons.forEach((button) => {
+//   const popup = button.closest('.modal');
+//   button.addEventListener('click', () => closePopup(popup));
+// });
 
 // form validation
 const validationConfig = {
@@ -106,3 +73,22 @@ const cardFormValidator = new FormValidator(validationConfig, addModal);
 
 editFormValidator.enableValidation();
 cardFormValidator.enableValidation();
+
+// section
+const cardSection = new Section(
+  { items: initialCards, renderer: renderCard },
+  '.cards__list'
+);
+cardSection.renderItems();
+
+// render cards
+function renderCard(cardData) {
+  const card = new Card(cardData, '#card-template', (data) => {
+    popupImagePreview.open(data);
+  });
+  cardsList.prepend(card.getCardView());
+}
+
+// popup with image
+const popupImagePreview = new PopupWithImage('#preview-modal');
+popupImagePreview.setEventListeners();

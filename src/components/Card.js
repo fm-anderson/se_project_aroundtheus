@@ -1,19 +1,16 @@
-import { openPopup } from './utils.js';
-
 class Card {
-  constructor(cardData, cardSelector) {
+  constructor(cardData, cardSelector, handleCardClick) {
     this._name = cardData.name;
     this._link = cardData.link;
     this._cardSelector = cardSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
-    const cardElement = document
+    return document
       .querySelector(this._cardSelector)
       .content.querySelector('.cards__content')
       .cloneNode(true);
-
-    return cardElement;
   }
 
   getCardView() {
@@ -38,7 +35,9 @@ class Card {
 
     this._element
       .querySelector('.cards__image')
-      .addEventListener('click', () => this._handlePreview());
+      .addEventListener('click', () =>
+        this._handleCardClick({ name: this._name, link: this._link })
+      );
   }
 
   _handleLikeButton() {
@@ -50,15 +49,15 @@ class Card {
     this._element = null;
   };
 
-  _handlePreview() {
-    const previewImage = document.querySelector('.modal__preview-image');
-    previewImage.src = this._link;
-    previewImage.alt = this._name;
-    const previewText = document.querySelector('.modal__preview-text');
-    previewText.textContent = this._name;
-    const previewModal = document.querySelector('#preview-modal');
-    openPopup(previewModal);
-  }
+  // _handlePreview() {
+  //   const previewImage = document.querySelector('.modal__preview-image');
+  //   previewImage.src = this._link;
+  //   previewImage.alt = this._name;
+  //   const previewText = document.querySelector('.modal__preview-text');
+  //   previewText.textContent = this._name;
+  //   const previewModal = document.querySelector('#preview-modal');
+  //   openPopup(previewModal);
+  // }
 }
 
 export default Card;

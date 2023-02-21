@@ -2,6 +2,7 @@ import FormValidator from '../components/FormValidator.js';
 import Card from '../components/Card.js';
 import Section from '../components/Section.js';
 import PopupWithImage from '../components/PopupWithImage.js';
+import PopupWithForm from '../components/PopupWithForm.js';
 // import { openPopup, closePopup } from '../components/utils.js';
 import { initialCards } from '../utils/constants.js';
 
@@ -51,7 +52,7 @@ function handleAddButton() {
 }
 
 // btnProfile.addEventListener('click', handleEditButton);
-// btnAddCard.addEventListener('click', handleAddButton);
+
 // profileFormElement.addEventListener('submit', handleProfileFormSubmit);
 // addCardFormElement.addEventListener('submit', handleAddCardFormSubmit);
 // closeButtons.forEach((button) => {
@@ -92,3 +93,16 @@ function renderCard(cardData) {
 // popup with image
 const popupImagePreview = new PopupWithImage('#preview-modal');
 popupImagePreview.setEventListeners();
+
+// popup with form
+const createCardForm = new PopupWithForm('#add-modal', (data) => {
+  const createdCard = new Card(data, '#card-template', (data) => {
+    popupImagePreview.open(data);
+    createdCard.getCardView();
+  });
+  cardSection.addItem(createdCard.getCardView());
+  createCardForm.close();
+});
+createCardForm.setEventListeners();
+
+btnAddCard.addEventListener('click', () => createCardForm.open());

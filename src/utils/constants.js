@@ -1,3 +1,17 @@
+const editModal = document.querySelector('#edit-modal');
+const btnProfile = document.querySelector('#edit-profile');
+const addModal = document.querySelector('#add-modal');
+const btnAddCard = document.querySelector('#btn-add-card');
+const cardsList = document.querySelector('.cards__list');
+
+const validationConfig = {
+  inputSelector: '.modal__input',
+  submitButtonSelector: '.modal__button',
+  inactiveButtonClass: 'modal__button_disabled',
+  inputErrorClass: 'modal__input_error',
+  errorClass: 'modal__error_visible',
+};
+
 const initialCards = [
   {
     name: 'Yosemite Valley',
@@ -25,4 +39,12 @@ const initialCards = [
   },
 ];
 
-export { initialCards };
+export {
+  initialCards,
+  editModal,
+  btnProfile,
+  addModal,
+  btnAddCard,
+  cardsList,
+  validationConfig,
+};

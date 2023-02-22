@@ -1,9 +1,13 @@
-import FormValidator from '../components/FormValidator.js';
-import Card from '../components/Card.js';
-import Section from '../components/Section.js';
-import PopupWithImage from '../components/PopupWithImage.js';
-import PopupWithForm from '../components/PopupWithForm.js';
-import UserInfo from '../components/UserInfo.js';
+import './pages/index.css';
+import logoSrc from './images/logo.svg';
+import jacquesSrc from './images/jacques-cousteau.jpg';
+
+import FormValidator from './components/FormValidator.js';
+import Card from './components/Card.js';
+import Section from './components/Section.js';
+import PopupWithImage from './components/PopupWithImage.js';
+import PopupWithForm from './components/PopupWithForm.js';
+import UserInfo from './components/UserInfo.js';
 import {
   initialCards,
   editModal,
@@ -12,7 +16,11 @@ import {
   btnAddCard,
   cardsList,
   validationConfig,
-} from '../utils/constants.js';
+} from './utils/constants.js';
+
+// images
+document.querySelector('#image-logo').src = logoSrc;
+document.querySelector('#image-jacques').src = jacquesSrc;
 
 // section
 const cardSection = new Section(

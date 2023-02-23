@@ -15,12 +15,12 @@ class Card {
 
   getCardView() {
     this._element = this._getTemplate();
-    this._setEventListenersCard();
     const cardElementImage = this._element.querySelector('.cards__image');
     cardElementImage.src = this._link;
     cardElementImage.alt = this._name;
     const cardElementTitle = this._element.querySelector('.cards__title');
     cardElementTitle.textContent = this._name;
+    this._setEventListenersCard();
 
     return this._element;
   }
@@ -48,16 +48,6 @@ class Card {
     this._element.remove();
     this._element = null;
   };
-
-  // _handlePreview() {
-  //   const previewImage = document.querySelector('.modal__preview-image');
-  //   previewImage.src = this._link;
-  //   previewImage.alt = this._name;
-  //   const previewText = document.querySelector('.modal__preview-text');
-  //   previewText.textContent = this._name;
-  //   const previewModal = document.querySelector('#preview-modal');
-  //   openPopup(previewModal);
-  // }
 }
 
 export default Card;

@@ -30,8 +30,8 @@ const cardSection = new Section(
 cardSection.renderItems();
 
 // render cards
-function renderCard(cardData) {
-  const card = new Card(cardData, '#card-template', (data) => {
+function renderCard(data) {
+  const card = new Card(data, '#card-template', (data) => {
     popupImagePreview.open(data);
   });
   cardsList.prepend(card.getCardView());
@@ -45,11 +45,7 @@ popupImagePreview.setEventListeners();
 const cardFormValidator = new FormValidator(validationConfig, addModal);
 
 const createCardForm = new PopupWithForm('#add-modal', (data) => {
-  const createdCard = new Card(data, '#card-template', (data) => {
-    popupImagePreview.open(data);
-    createdCard.getCardView();
-  });
-  cardSection.addItem(createdCard.getCardView());
+  renderCard(data);
   createCardForm.close();
 });
 createCardForm.setEventListeners();

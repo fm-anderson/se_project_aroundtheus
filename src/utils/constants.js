@@ -1,9 +1,3 @@
-const editModal = document.querySelector('#edit-modal');
-const btnProfile = document.querySelector('#edit-profile');
-const addModal = document.querySelector('#add-modal');
-const btnAddCard = document.querySelector('#btn-add-card');
-const cardsList = document.querySelector('.cards__list');
-
 const validationConfig = {
   inputSelector: '.modal__input',
   submitButtonSelector: '.modal__button',
@@ -11,6 +5,26 @@ const validationConfig = {
   inputErrorClass: 'modal__input_error',
   errorClass: 'modal__error_visible',
 };
+
+const selectors = {
+  nameInput: '#name-input',
+  jobInput: '#job-input',
+  profTitle: '#prof-title',
+  profSubtitle: '#prof-subtitle',
+  previewModal: '#preview-modal',
+  cardTemplate: '#card-template',
+  editModal: '#edit-modal',
+  addModal: '#add-modal',
+  btnProfile: '#edit-profile',
+  btnAddCard: '#btn-add-card',
+  cardsList: '.cards__list',
+};
+
+const editModal = document.querySelector(selectors.editModal);
+const addModal = document.querySelector(selectors.addModal);
+const btnProfile = document.querySelector(selectors.btnProfile);
+const btnAddCard = document.querySelector(selectors.btnAddCard);
+const cardsList = document.querySelector(selectors.cardsList);
 
 const initialCards = [
   {
@@ -47,4 +61,5 @@ export {
   btnAddCard,
   cardsList,
   validationConfig,
+  selectors,
 };

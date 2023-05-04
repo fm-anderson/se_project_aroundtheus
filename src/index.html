@@ -18,21 +18,28 @@
 
       <main>
         <section class="profile">
-          <img
-            id="image-jacques"
-            alt="Jacques Cousteau's Profile Image."
-            class="profile__avatar"
-          />
+          <div class="profile__avatar">
+            <button
+              class="profile__avatar-button"
+              id="avatar-button"
+              type="button"
+            ></button>
+            <img
+              id="image-jacques"
+              alt="Jacques Cousteau's Profile Image."
+              class="profile__image"
+            />
+          </div>
           <div class="profile__info">
-            <div class="profile__info-title">
+            <div class="profile__info-details">
               <h1 class="profile__title" id="prof-title">Jacques Cousteau</h1>
-              <button
-                class="profile__edit"
-                type="button"
-                id="edit-profile"
-              ></button>
+              <p class="profile__subtitle" id="prof-subtitle">Explorer</p>
             </div>
-            <p class="profile__subtitle" id="prof-subtitle">Explorer</p>
+            <button
+              class="profile__edit"
+              type="button"
+              id="edit-profile"
+            ></button>
           </div>
           <button class="profile__add" type="button" id="btn-add-card"></button>
         </section>
@@ -45,7 +52,10 @@
                 <button type="button" class="cards__delete"></button>
                 <div class="cards__info">
                   <h2 class="cards__title"></h2>
-                  <button type="button" class="cards__like"></button>
+                  <div class="cards__like">
+                    <button class="cards__like-button"></button>
+                    <p class="cards__like-counter">1</p>
+                  </div>
                 </div>
               </li>
             </template>
@@ -137,6 +147,46 @@
         ></button>
         <img class="modal__preview-image" src="#" alt="#" />
         <h3 class="modal__preview-text"></h3>
+      </div>
+    </div>
+
+    <div class="modal" id="confirm-modal">
+      <div class="modal__container modal__container_confirm">
+        <form class="modal__form">
+          <h3 class="modal__title modal__title_confirm">Are you sure?</h3>
+          <button class="modal__button" type="submit">Yes</button>
+        </form>
+        <button
+          class="modal__close-button"
+          type="button"
+          id="close-preview-modal"
+        ></button>
+      </div>
+    </div>
+
+    <div class="modal" id="avatar-modal">
+      <div class="modal__container">
+        <form class="modal__form" id="avatar-form" novalidate>
+          <h3 class="modal__title">Change profile picture</h3>
+          <!-- modal__input_type_avatar -->
+          <input
+            name="avatar"
+            placeholder="Image Link"
+            id="avatar-link"
+            type="url"
+            class="modal__input"
+            required
+          />
+          <span class="modal__error" id="avatar-link-error"></span>
+          <button class="modal__button" type="submit" aria-label="save">
+            Save
+          </button>
+        </form>
+        <button
+          class="modal__close-button"
+          type="button"
+          aria-label="close"
+        ></button>
       </div>
     </div>
   </body>

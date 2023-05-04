@@ -30,7 +30,7 @@ class Card {
       .querySelector('.cards__delete')
       .addEventListener('click', () => this._handleDeleteButton());
 
-    this._likeButton = this._element.querySelector('.cards__like');
+    this._likeButton = this._element.querySelector('.cards__like-button');
     this._likeButton.addEventListener('click', () => this._handleLikeButton());
 
     this._element

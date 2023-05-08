@@ -21,19 +21,19 @@
           <div class="profile__avatar">
             <button
               class="profile__avatar-button"
-              id="avatar-button"
+              id="btn-avatar"
               type="button"
             ></button>
             <img
-              id="image-jacques"
-              alt="Jacques Cousteau's Profile Image."
+              id="avatar-image"
+              alt="Profile Image."
               class="profile__image"
             />
           </div>
           <div class="profile__info">
             <div class="profile__info-details">
-              <h1 class="profile__title" id="prof-title">Jacques Cousteau</h1>
-              <p class="profile__subtitle" id="prof-subtitle">Explorer</p>
+              <h1 class="profile__title" id="prof-title"></h1>
+              <p class="profile__subtitle" id="prof-subtitle"></p>
             </div>
             <button
               class="profile__edit"
@@ -86,7 +86,7 @@
               type="text"
               class="modal__input"
               id="job-input"
-              name="job"
+              name="about"
               placeholder="Description"
               minlength="2"
               maxlength="200"
@@ -168,7 +168,6 @@
       <div class="modal__container">
         <form class="modal__form" id="avatar-form" novalidate>
           <h3 class="modal__title">Change profile picture</h3>
-          <!-- modal__input_type_avatar -->
           <input
             name="avatar"
             placeholder="Image Link"
@@ -178,15 +177,9 @@
             required
           />
           <span class="modal__error" id="avatar-link-error"></span>
-          <button class="modal__button" type="submit" aria-label="save">
-            Save
-          </button>
+          <button class="modal__button" type="submit">Save</button>
         </form>
-        <button
-          class="modal__close-button"
-          type="button"
-          aria-label="close"
-        ></button>
+        <button class="modal__close-button" type="button"></button>
       </div>
     </div>
   </body>

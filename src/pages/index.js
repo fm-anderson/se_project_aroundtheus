@@ -18,7 +18,7 @@ import {
   selectors,
   btnAvatar,
   avatarModal,
-} from '../utils/constants.js';
+} from '../utils/utils.js';
 
 // images
 document.querySelector('#image-logo').src = logoSrc;
@@ -123,9 +123,6 @@ cardFormValidator.enableValidation();
 const avatarFormValidator = new FormValidator(validationConfig, avatarModal);
 avatarFormValidator.enableValidation();
 
-/* -------------------------------------------------------------------------- */
-/*                               Event Listeners                              */
-/* -------------------------------------------------------------------------- */
 // popup with form: profile
 const profileForm = new PopupWithForm({
   popupSelector: selectors.editModal,

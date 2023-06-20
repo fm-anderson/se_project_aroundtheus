@@ -21,12 +21,12 @@ The Around the US website is a gallery website that uses one of Practicum's data
 ## Screenshots
 
 Home Page
-![Around the U.S. Home Page](https://file.notion.so/f/s/c5ad1ad5-9c21-47f5-a9fa-6e1be192f122/screencapture-fm-anderson-github-io-se-project-aroundtheus-2023-05-22-23_04_06.png?id=64700e41-2037-4f52-86c7-f4e547c5653d&table=block&spaceId=073044f3-b5a6-4def-9c6c-7aa8a85e6981&expirationTimestamp=1685209543154&signature=86AH0EiypfjvzPjYCHUB_NljqYTnjSi43aJnyXCeapE&downloadName=screencapture-fm-anderson-github-io-se-project-aroundtheus-2023-05-22-23_04_06.png 'Home Page')
+![Around the U.S. Home Page](./src/images/screenshots/home.png 'Home Page')
 
 Edit Profile Modal
-![Edit Profile Modal](https://file.notion.so/f/s/fa494217-b23a-4de4-bf5e-5a7ea8322c01/Screenshot_2023-05-22_at_11.05.25_PM.png?id=68497608-552e-410b-859d-3bd77292f662&table=block&spaceId=073044f3-b5a6-4def-9c6c-7aa8a85e6981&expirationTimestamp=1685209567328&signature=jLqr4-L6StfMvF99OWgGUzhNPkn-C_Xs92y2HZmuLPM&downloadName=Screenshot+2023-05-22+at+11.05.25+PM.png 'Profile Modal')
+![Edit Profile Modal](./src/images/screenshots/edit-profile.png 'Profile Modal')
 
 New Place Modal
-![New Place Modal](https://file.notion.so/f/s/de81b5fd-9c12-4a7e-a508-abab191df07b/Screenshot_2023-05-22_at_11.05.41_PM.png?id=77222f18-c6f8-4c44-b39b-7f13541c3f85&table=block&spaceId=073044f3-b5a6-4def-9c6c-7aa8a85e6981&expirationTimestamp=1685209630886&signature=3pzzaFYLZT7FgdJ2Ajvon2Dxzulo7rxrhTe_ko-Mvmw&downloadName=Screenshot+2023-05-22+at+11.05.41+PM.png 'New Place Modal')
+![New Place Modal](./src/images/screenshots/new-place.png 'New Place Modal')
 
 **Created By [Anderson M.](https://github.com/fm-anderson)**
